@@ -1,0 +1,25 @@
+#cloud-config
+
+users:
+  - name: ${username}
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: docker
+    shell: /bin/bash
+    lock_passwd: false
+    hashed_passwd: ${vm_password}
+    ssh-authorized-keys:
+      - ${ssh_key_pub}
+
+# Set environments for Container Registry test
+write_files:
+  - path: "/home/${username}/.bashrc"
+    append: true
+    defer: true
+    content: |
+      export REGISTRY_ID=${registry_id}
+      export PATH=$PATH:/opt/yc/bin
+
+# Authenticate in Container Registry using Docker Credential helper
+runcmd:
+  - su -c "yc config profile create default" ${username}
+  - su -c "yc container registry configure-docker" ${username}
