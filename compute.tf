@@ -31,8 +31,8 @@ data "yandex_compute_image" "nat_instance_image" {
 resource "yandex_compute_instance" "nat_vm" {
   count       = var.nat_instances_count
   folder_id   = var.folder_id
-  name        = "cr-nat-${substr(var.yc_availability_zones[count.index % length(var.yc_availability_zones)], -1, -1)}${floor(count.index / length(var.yc_availability_zones)) + 1}-vm"
-  hostname    = "cr-nat-${substr(var.yc_availability_zones[count.index % length(var.yc_availability_zones)], -1, -1)}${floor(count.index / length(var.yc_availability_zones)) + 1}-vm"
+  name        = "nat-${substr(var.yc_availability_zones[count.index % length(var.yc_availability_zones)], -1, -1)}${floor(count.index / length(var.yc_availability_zones)) + 1}-vm"
+  hostname    = "nat-${substr(var.yc_availability_zones[count.index % length(var.yc_availability_zones)], -1, -1)}${floor(count.index / length(var.yc_availability_zones)) + 1}-vm"
   platform_id = "standard-v3"
   zone        = var.yc_availability_zones[count.index % length(var.yc_availability_zones)]
 

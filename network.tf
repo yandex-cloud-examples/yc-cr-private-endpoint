@@ -65,7 +65,7 @@ resource "yandex_dns_recordset" "s3-endpoint-dns-rec" {
 // List of static public IPs for NAT-instances 
 resource "yandex_vpc_address" "public_ip_list" {
   count = var.nat_instances_count
-  name = "cr-pub-ip-${substr(var.yc_availability_zones[count.index % length(var.yc_availability_zones)], -1, -1)}${count.index + 1}"
+  name = "pub-ip-${substr(var.yc_availability_zones[count.index % length(var.yc_availability_zones)], -1, -1)}${count.index + 1}"
   folder_id = var.folder_id
   external_ipv4_address {
     zone_id = var.yc_availability_zones[count.index % length(var.yc_availability_zones)]
