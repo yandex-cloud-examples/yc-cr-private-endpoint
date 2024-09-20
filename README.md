@@ -139,7 +139,7 @@ Container Registry для хранения Docker-образов в реестр
     | `registry_private_access` | - | Ограничить доступ к реестру только с публичных IP-адресов ВМ с NAT. Используется значение `true` для ограничения, `false` для отмены ограничения. | `bool` | `true` |
     | `trusted_cloud_nets` | да | Список агрегированных префиксов облачных подсетей, для которых разрешен доступ к Container Registry. Используется во входящем правиле групп безопасности для ВМ с NAT.  | `list(string)` | `["10.0.0.0/8", "192.168.0.0/16"]` |
     | `vm_username` | - | Имя пользователя для ВМ с NAT и тестовой ВМ. | `string` | `admin` |
-    | `cr_ip` | - | Публичный IP-адрес сервиса Container Registry. | `string` | `84.201.171.239` |
+    | `cr_ip` | - | Публичный IP-адрес сервиса Container Registry. | `string` | `51.250.44.40` |
     | `cr_fqdn` | - | Доменное имя сервиса Container Registry. | `string` | `cr.yandex` | 
     | `s3_ip` | - | Публичный IP-адрес сервиса Object Storage. | `string` | `213.180.193.243` |
     | `s3_fqdn` | - | Доменное имя сервиса Object Storage. | `string` | `storage.yandexcloud.net` |  

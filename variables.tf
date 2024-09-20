@@ -53,7 +53,7 @@ variable "vm_username" {
 variable "cr_ip" {
   type        = string
   description = "Yandex Container Register Endpoint IP address"
-  default     = "84.201.171.239"
+  default     = "51.250.44.40"
 }
 
 variable "cr_fqdn" {
